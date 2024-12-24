@@ -27,15 +27,27 @@ body{
       filter: blur(10px);
     }
     
-    .item{
-      width: 640px;
-      height: 480px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-      transition: transform 0.7s;
-      position: absolute;
+    .item-2 .item-description {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    
+    .item-1 .item-description,
+    .item-3 .item-description {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    
+    .item-description h2 {
+        margin: 0 0 10px 0;
+        font-size: 1.5em;
+    }
+    
+    .item-description p {
+        margin: 0;
+        font-size: 0.9em;
+        line-height: 1.4;
+    }
   
       @media only screen and (max-width: 960px){
         width: 400px;
@@ -71,4 +83,4 @@ body{
     .item-3{
       transform: translate(20%, -50%);
     }
-  }
+  

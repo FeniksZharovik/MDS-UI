@@ -40,20 +40,35 @@ class Slider{
     }
     
     next = () => {
-      this.items.unshift(this.items[2]);
-      this.items.pop();
-      this.reclass();
-      this.listeners();
-      this.setBackground();
-    }
-
-    previous = () => {
-        this.items.push(this.items[0]);
-        this.items.shift();
+        this.items.unshift(this.items[2]);
+        this.items.pop();
         this.reclass();
+        this.updateDescriptionVisibility();
         this.listeners();
         this.setBackground();
-    }
-  }
+      }
   
-  const slider = new Slider(document.querySelector('#slider'));
+      previous = () => {
+          this.items.push(this.items[0]);
+          this.items.shift();
+          this.reclass();
+          this.updateDescriptionVisibility();
+          this.listeners();
+          this.setBackground();
+      }
+  
+      updateDescriptionVisibility = () => {
+        this.items.forEach((item, index) => {
+          const description = item.querySelector('.item-description');
+          if (index === 1) {
+            description.style.transform = 'translateY(0)';
+            description.style.opacity = '1';
+          } else {
+            description.style.transform = 'translateY(100%)';
+            description.style.opacity = '0';
+          }
+        });
+      }
+    }
+    
+    const slider = new Slider(document.querySelector('#slider'));
