@@ -1,24 +1,10 @@
-class Slider {
-  constructor(_element) {
+class Slider{
+  constructor(_element){
     this.slider = _element;
-    this.items = Array.from(this.slider.querySelectorAll('.item'));
+    this.items = [this.slider.querySelector('.item-1'), this.slider.querySelector('.item-2'), this.slider.querySelector('.item-3')];
     this.background = this.slider.querySelector('.background');
     this.listeners();
     this.setBackground();
-    this.updateDescriptionVisibility();
-  }
-
-  updateDescriptionVisibility = () => {
-    this.items.forEach((item, index) => {
-      const description = item.querySelector('.item-description');
-      if (index === 1) {
-        description.style.opacity = '1';
-        description.style.transform = 'scale(1)';
-      } else {
-        description.style.opacity = '0';
-        description.style.transform = 'scale(0.8)';
-      }
-    });
   }
 
   setBackground = () => {
